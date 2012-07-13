@@ -10,29 +10,10 @@
     <name>Maven Quick Start Archetype</name>
     <url>http://maven.apache.org</url>
 
-    <properties>
-        <jetty.version>7.2.2.v20101205</jetty.version>
-    </properties>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>codehaus-snapshots</id>
-            <name>Codehaus Snapshots</name>
-            <url>http://nexus.codehaus.org/snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.ws</groupId>
-            <artifactId>spring-ws</artifactId>
-            <classifier>all</classifier>
+            <artifactId>spring-ws-core</artifactId>
             <version>2.1.0.RELEASE</version>
         </dependency>
         <dependency>
@@ -48,15 +29,13 @@
             <plugin>
                 <groupId>org.codehaus.cargo</groupId>
                 <artifactId>cargo-maven2-plugin</artifactId>
-                <version>1.2.3-SNAPSHOT</version>
+                <version>1.2.2</version>
                 <configuration>
                     <container>
                         <containerId>jetty7x</containerId>
-                        <artifactInstaller>
-                            <groupId>org.eclipse.jetty</groupId>
-                            <artifactId>jetty-distribution</artifactId>
-                            <version>${jetty.version}</version>
-                        </artifactInstaller>
+                        <zipUrlInstaller>
+                            <url>http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-distribution/7.6.4.v20120524/jetty-distribution-7.6.4.v20120524.tar.gz</url>
+                        </zipUrlInstaller>
                     </container>
                     <configuration>
                         <type>standalone</type>
