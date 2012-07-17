@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<ServiceRequest xmlns="http://samples">
+    <Service Name="AddressFinder">
+        <Function Name="findAddress">
+            <InputVariables>
+                <address>
+                    <houseNumber>888</houseNumber>
+                    <street>Willey St</street>
+                    <city>Morgantown</city>
+                    <state_prov>WV</state_prov>
+                    <zone>26505</zone>
+                </address>
+                <datasource>GDT.Streets.US</datasource>
+                <username>[username]</username>
+                <password>[password]</password>
+            </InputVariables>
+        </Function>
+    </Service>
+</ServiceRequest>
