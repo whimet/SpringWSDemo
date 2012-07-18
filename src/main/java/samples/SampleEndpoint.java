@@ -1,7 +1,10 @@
 package samples;
 
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.ws.server.endpoint.annotation.*;
+import org.springframework.ws.server.endpoint.annotation.Endpoint;
+import org.springframework.ws.server.endpoint.annotation.Namespace;
+import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
+import org.springframework.ws.server.endpoint.annotation.XPathParam;
 
 import javax.xml.transform.stream.StreamSource;
 import java.io.IOException;
@@ -11,10 +14,9 @@ import static org.apache.commons.io.FileUtils.readFileToString;
 @Endpoint
 public class SampleEndpoint {
 
-    @PayloadRoot(localPart = "orderRequest", namespace = "http://samples")
+    @PayloadRoot(localPart = "ServiceRequest", namespace = "http://samples")
     @Namespace(prefix = "s", uri = "http://samples")
-    @ResponsePayload
-    public StreamSource foo(@XPathParam("/s:orderRequest/@id") int orderId) throws IOException {
+    public StreamSource foo(@XPathParam("/s:ServiceRequest/Service/@Name") String name) throws IOException {
         return new StreamSource(readFileToString(new ClassPathResource("response.xml").getFile()));
     }
 
